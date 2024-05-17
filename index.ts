@@ -2,8 +2,10 @@ import * as express from "express";
 import * as path from "path";
 import { jugadores } from "./dummy-data/jugadores";
 import { roundNumber } from "./tools/roundNumber";
+import * as cors from "cors";
 
 const app = express();
+app.use(cors({ origin: "*" }));
 const port = parseInt(process.env.PORT) || process.argv[3] || 8081;
 
 app.get("/", (req, res) => {
